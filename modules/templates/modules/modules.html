@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Modules</h1>
+<table>
+    <tr>
+        <th>Module Title</th>
+        <th>Description</th>
+        <th>Module Leader</th>
+        <th>Module Credits</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for module in modules %}
+    <tr>
+        <td>{{module.title}}</td>
+        <td>{{module.Desc}}</td>
+        <td>{{module.module_leader}}</td>
+        <td>{{module.module_credits}}</td>
+        <td><a href="{% url 'update-module' module.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-module' module.id %}">Delete</a></td>
+    </tr>
+   {% endfor %}
+</table>
+
+{% endblock content %}

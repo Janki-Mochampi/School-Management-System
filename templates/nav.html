@@ -1,0 +1,26 @@
+{% load static %}
+
+<header class="header">
+    <div class="container container--narrow">
+      <a href="{% url 'modules' %}" class="header__logo">
+        <img src="{% static 'images/logo.png' %}" alt="SMS Logo" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+            <li class="header__menuItem"><a href="{% url 'create-module' %}" class="btn btn--sub">Add Module</a></li>
+            <li class="header__menuItem"><a href="{% url 'create-comment' %}" class="btn btn--sub">Add Comment</a></li>
+            <li class="header__menuItem"><a href="{% url 'create-tag' %}" class="btn btn--sub">Add Tag</a></li>
+            {% if request.user.is_authenticated %}
+            <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
+            {% else %}
+            <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Login/Sign Up</a></li>
+            {% endif %}
+        </ul>
+        </nav>
+    </div>
+  </header>

@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Tags</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Created</th>
+    </tr>
+    {% for Tag in tags %}
+    <tr>
+        <td>{{Tag.name}}</td>
+        <td>{{Tag.created}}</td>
+        <td><a href="{% url 'update-tag' Tag.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-tag' Tag.id %}">Delete</a></td>
+    </tr>
+   {% endfor %}
+</table>
+
+{% endblock content %}

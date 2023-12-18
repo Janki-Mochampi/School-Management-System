@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Comments</h1>
+<table>
+    <tr>
+        <th>Module Title</th>
+        <th>Body</th>
+        <th>Value</th>
+        <th>Created</th>
+      
+    </tr>
+    {% for comment in comments %}
+    <tr>
+        <td>{{comment.module}}</td>
+        <td>{{comment.body}}</td>
+        <td>{{comment.value}}</td>
+        <td>{{comment.created}}</td>
+        <td><a href="{% url 'update-comment' comment.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-comment' comment.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock content %}
